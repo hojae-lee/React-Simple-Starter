@@ -1,5 +1,16 @@
+import RecoilComponent from "./components/RecoilComponent";
+import { useRecoilState } from "recoil";
+import { countState } from "@atom";
+
 function RecoilPage() {
-  return <div>RecoilPage 페이지 입니다.</div>;
+  const [count] = useRecoilState(countState);
+
+  return (
+    <div>
+      Parent: {count}
+      <RecoilComponent />
+    </div>
+  );
 }
 
 export default RecoilPage;

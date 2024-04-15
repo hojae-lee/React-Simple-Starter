@@ -13,7 +13,7 @@ export default defineConfig({
         new URL("./src/components", import.meta.url)
       ),
       "@pages": fileURLToPath(new URL("./src/pages", import.meta.url)),
-      "@recoil": fileURLToPath(new URL("./src/recoil", import.meta.url)),
+      "@atom": fileURLToPath(new URL("./src/atom", import.meta.url)),
       "@apis": fileURLToPath(new URL("./src/apis", import.meta.url)),
     },
   },
