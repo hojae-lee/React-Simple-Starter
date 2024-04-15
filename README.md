@@ -5,12 +5,13 @@
 1. react 프로젝트 설치: `yarn create vite@latest`
 2. 외부 오픈 API 통신을 위한 라이브러리 axios 설치: `yarn add axios`
 3. css 스타일링을 위한 sass/scss 설치: `yarn add -D sass`
-4. react router 설치: `yarn add react-router-dom localforage match-sorter sort-by`
-5. react toast poup: `yarn add react-simple-toasts`
-6. React 중앙집중식 상태관리 라이브러리 Recoil 설치: `yarn add recoil`
-7. Redux 설치: `yarn add @reduxjs/toolkit react-redux`
+4. 추가적인 스타일 컴포넌트를 원한다: `yarn add styled-components`
+5. react router 설치: `yarn add react-router-dom localforage match-sorter sort-by`
+6. react toast poup: `yarn add react-simple-toasts`
+7. React 중앙집중식 상태관리 라이브러리 Recoil 설치: `yarn add recoil`
+8. Redux 설치: `yarn add @reduxjs/toolkit react-redux`
 
-6,7 번은 둘 중 원하는 거 고고
+7,8 번은 둘 중 원하는 거 고고
 
 ### vite.config.js
 
