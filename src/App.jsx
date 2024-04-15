@@ -3,12 +3,16 @@ import MainPage from "./pages/main/index";
 import AboutPage from "./pages/about/index";
 import DetailPage from "./pages/detail/index";
 
-// About Child
+// Child
 import AboutSecondPage from "./pages/about/Second";
+
+// Common
+import Header from "@components/common/header/Header";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         {/* 가장 기본이 되는 페이지는 index 를 넣어주기 */}
         <Route index path="/" element={<MainPage />} />

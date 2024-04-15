@@ -1,5 +1,3 @@
-import Header from "@components/common/header/Header";
-
 import styles from "./styles/index.module.scss";
 import test from "@assets/images/test.png";
 
@@ -8,7 +6,6 @@ function index() {
   const desc = "React v18 기반의 간단한 스타터 입니다.";
   return (
     <div className={styles.container}>
-      <Header />
       <div className={styles.container__contents}>
         <div className={styles.container__contents__introBox}>
           <div className={styles.container__contents__introBox__wrapper}>

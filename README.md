@@ -46,7 +46,7 @@ export default defineConfig({
 
 “rfce” 를 치면 간단하게 리액트 컴포넌트를 스닛펫으로 만들 수 있음.
 
-### React 라우터 설정 및 동적 페이지 라우팅 예제
+### App.jsx
 
 ```jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -54,12 +54,16 @@ import MainPage from "./pages/main/index";
 import AboutPage from "./pages/about/index";
 import DetailPage from "./pages/detail/index";
 
-// About Child
+// Child
 import AboutSecondPage from "./pages/about/Second";
+
+// Common
+import Header from "@components/common/header/Header";
 
 function App() {
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         {/* 가장 기본이 되는 페이지는 index 를 넣어주기 */}
         <Route index path="/" element={<MainPage />} />
