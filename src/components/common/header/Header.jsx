@@ -2,7 +2,7 @@ import styles from "./Header.module.scss";
 
 function Header() {
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.header__logoBox}>
         <span className={styles.header__logoBox__title}>
           ✏️ React Simple Starter
@@ -13,7 +13,7 @@ function Header() {
           hojaelee | https://github.com/hojae-lee
         </span>
       </div>
-    </div>
+    </header>
   );
 }
 
