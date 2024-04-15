@@ -50,9 +50,9 @@ export default defineConfig({
 
 ```jsx
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from "./pages/Main";
+import MainPage from "./pages/main/index";
 import AboutPage from "./pages/about/index";
-import DetailPage from "./pages/Detail";
+import DetailPage from "./pages/detail/index";
 
 // About Child
 import AboutSecondPage from "./pages/about/Second";
