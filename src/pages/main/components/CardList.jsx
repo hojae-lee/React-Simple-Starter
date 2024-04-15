@@ -8,7 +8,7 @@ function CardList() {
 
   const getData = async () => {
     const API_URL = "https://api.unsplash.com/search/photos";
-    const API_KEY = "<AccessToken>";
+    const API_KEY = "jJHxXrno2ZHv0YwoM1OyE4zprBv8TM_g2jJjV2N-aYs";
     const PER_PAGE = 30;
 
     const searchValue = "mountain";
