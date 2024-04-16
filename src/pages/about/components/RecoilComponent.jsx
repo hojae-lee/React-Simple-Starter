@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { countState } from "@atom";
+import { countState } from "@recoil/countAtom";
 
 function RecoilComponent() {
   const [count, setCount] = useRecoilState(countState);
