@@ -84,3 +84,63 @@ function App() {
 
 export default App;
 ```
+
+### Recoil 간단 설명 추가
+
+props drilling 을 해결하기 위해 페이스북에서 만든 공식 라이브러리로 redux 대신 사용하는 상태관리 라이브러리 입니다.
+
+atoms 기반의 상태관리를 사용하여 컴포넌트 간 상태를 유기적으로 관리할 수 있습니다.
+
+```jsx
+yarn add recoil
+```
+
+최상단 루트로 가서 RecoilRoot를 이용하여 recoil 을 사용하겠다고 명시해주면 됩니다.
+
+```jsx
+import React from "react";
+import { RecoilRoot } from "recoil";
+
+function App() {
+  return (
+    <RecoilRoot>
+      <CharacterCounter />
+    </RecoilRoot>
+  );
+}
+```
+
+### Atoms
+
+상태의 단위로 업데이트, 구독이 가능함.
+
+atom이 업데이트 되면서 각각 구독된 컴포넌트는 새로운 값을 반영하여 다시 렌더링 된다.
+
+```jsx
+const countState = atom({
+  key: "countState",
+  default: 0,
+});
+```
+
+atom 을 이용해서 state 를 선언하며, key는 고유한 id, default 는 기본값을 셋팅할 수 있습니다.
+
+이제 컴포넌트에서 atom 을 사용할려면 `useRecoilState` 훅을 사용하면 됩니다.
+
+```jsx
+import { useRecoilState } from "recoil";
+
+const countState = atom({
+  key: "countState",
+  default: 0,
+});
+
+function CountButton() {
+  const [count, setCount] = useRecoilState(countState);
+  return <button onClick={() => setCount(count + 1)}>count++</button>;
+}
+```
+
+useRecoilState 사용방법은 useState 와 동일합니다. count 로 선언해주고 set 을 이용해서 업데이트 해줍니다. 이렇게 셋팅하면 redux 와 비교했을 때 훨씬 가볍게 셋팅할 수 있는 것을 확인할 수 있습니다.
+
+이제 src 밑에 atom.js 파일을 만들어서 상태를 관리해주면 상태 관리를 좀 더 쉽게 할 수 있습니다!
