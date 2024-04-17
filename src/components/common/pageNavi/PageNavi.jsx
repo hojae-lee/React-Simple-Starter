@@ -4,7 +4,6 @@ import styles from "./PageNavi.module.scss";
 
 function PageNavi(props) {
   const { totalPageNumber, perPage, pageNumber, paginate } = props;
-  // 페이지네이션 컴포넌트
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalPageNumber / perPage); i++) {
