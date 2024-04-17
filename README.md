@@ -33,6 +33,7 @@ export default defineConfig({
       ),
       "@pages": fileURLToPath(new URL("./src/pages", import.meta.url)),
       "@recoil": fileURLToPath(new URL("./src/recoil", import.meta.url)),
+      "@store": fileURLToPath(new URL("./src/store", import.meta.url)),
       "@apis": fileURLToPath(new URL("./src/apis", import.meta.url)),
     },
   },
@@ -91,6 +92,8 @@ export default App;
 props drilling 을 해결하기 위해 페이스북에서 만든 공식 라이브러리로 redux 대신 사용하는 상태관리 라이브러리 입니다.
 
 atoms 기반의 상태관리를 사용하여 컴포넌트 간 상태를 유기적으로 관리할 수 있습니다.
+
+redux 보다 편함.
 
 ```jsx
 yarn add recoil
