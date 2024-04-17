@@ -9,7 +9,12 @@ function Card(params) {
 
   return (
     <div className={styles.card} onClick={openDialog}>
-      <img src={imageUrl} alt={alt} className={styles.card__image} />
+      <img
+        src={imageUrl}
+        alt={alt}
+        className={styles.card__image}
+        loading="lazy"
+      />
     </div>
   );
 }
