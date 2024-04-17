@@ -10,6 +10,7 @@
 6. react toast poup: `yarn add react-simple-toasts`
 7. React 중앙집중식 상태관리 라이브러리 Recoil 설치: `yarn add recoil`
 8. Redux 설치: `yarn add @reduxjs/toolkit react-redux`
+9. prop-types 설치: `yarn add prop-types`
 
 7,8 번은 둘 중 원하는 거 고고
 

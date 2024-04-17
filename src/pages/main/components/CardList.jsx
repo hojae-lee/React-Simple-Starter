@@ -2,23 +2,26 @@ import { useState, useEffect, useTransition } from "react";
 import axios from "axios";
 
 import Card from "./Card";
+import PageNavi from "@components/common/pageNavi/PageNavi";
 
 function CardList() {
   const [data, setData] = useState([]);
   const [isPending, startTransition] = useTransition();
 
-  const getData = async () => {
-    const API_URL = "https://jsonplaceholder.typicode.com/photos";
-    // const API_KEY = "<KEY>";
-    // const PER_PAGE = 30;
+  // 페이징 처리
+  const [pageNumber, setPageNumber] = useState(1);
+  const perPage = 50;
+  const totalPageNumber = 5000;
 
-    // const searchValue = "mountain";
-    // const pageValue = 100;
+  // 데이터 조회
+  useEffect(() => {
+    getData(pageNumber);
+  }, [pageNumber]);
+
+  const getData = async (pageNumber) => {
+    const API_URL = `https://jsonplaceholder.typicode.com/albums/${pageNumber}/photos`;
 
     try {
-      // const res = await axios.get(
-      //   `${API_URL}?query=${searchValue}&client_id=${API_KEY}&page=${pageValue}&per_page=${PER_PAGE}`
-      // );
       const res = await axios.get(`${API_URL}`);
 
       if (res.status === 200) {
@@ -32,9 +35,8 @@ function CardList() {
     }
   };
 
-  useEffect(() => {
-    getData();
-  }, []);
+  // 페이지 변경 함수
+  const paginate = (pageNumber) => setPageNumber(pageNumber);
 
   return (
     <>
@@ -43,6 +45,13 @@ function CardList() {
         : data.map((item) => (
             <Card key={item.id} imageUrl={item.thumbnailUrl} alt={item.title} />
           ))}
+
+      <PageNavi
+        pageNumber={pageNumber}
+        perPage={perPage}
+        totalPageNumber={totalPageNumber}
+        paginate={paginate}
+      />
     </>
   );
 }
