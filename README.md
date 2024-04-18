@@ -1,6 +1,6 @@
 # Simple React Project
 
-## 개발환경 셋팅
+## 개발환경 셋팅 💻
 
 1. react 프로젝트 설치: `yarn create vite@latest`
 2. 외부 오픈 API 통신을 위한 라이브러리 axios 설치: `yarn add axios`
@@ -14,7 +14,14 @@
 
 7,8 번은 둘 중 원하는 거 고고
 
-### vite.config.js
+### 스타일 🎨
+
+1. `assets/styles/scss/main.scss`: 전체 공통 스타일 부분
+2. `color.scss, font.scss`: 공통으로 사용할 color, font 가 들어있음.
+3. 컴포넌트별로 필요한 스타일은 components 별 styles 폴더를 만들어서 관리.
+4. scss 를 안쓰고 싶은 경우, `styled-components` 를 이용해서 사용
+
+### vite.config.js ⚡︎
 
 ```js
 import { defineConfig } from "vite";
