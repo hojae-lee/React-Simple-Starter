@@ -1,7 +1,7 @@
 import { useState, useEffect, useTransition } from "react";
 import axios from "axios";
 
-import Card from "./Card";
+import Card from "./card/index";
 import PageNavi from "@components/common/pageNavi/PageNavi";
 
 function CardList() {

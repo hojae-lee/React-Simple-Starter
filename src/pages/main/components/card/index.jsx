@@ -1,4 +1,4 @@
-import styles from "./Card.module.scss";
+import styles from "./index.module.scss";
 
 function Card(params) {
   const { imageUrl, alt } = params;

@@ -1,4 +1,4 @@
-import PageNavi from "@components/common/footer/PageNavi";
+import FooterHello from "@components/common/footer/FooterHello";
 import CardList from "./components/CardList";
 
 import styles from "./styles/index.module.scss";
@@ -18,7 +18,7 @@ function index() {
         </div>
         <div className={styles.container__contents__imageBox}>
           <CardList />
-          <PageNavi />
+          <FooterHello />
         </div>
       </div>
     </div>

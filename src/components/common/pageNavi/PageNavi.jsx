@@ -2,6 +2,9 @@ import PropTypes from "prop-types";
 
 import styles from "./PageNavi.module.scss";
 
+import arrowLeft from "@assets/icons/arrow-left.svg";
+import arrowRight from "@assets/icons/arrow-right.svg";
+
 function PageNavi(props) {
   const { totalPageNumber, perPage, pageNumber, paginate } = props;
   const pageNumbers = [];
@@ -23,7 +26,7 @@ function PageNavi(props) {
             onClick={() => paginate(pageNumber - 1)}
             className={`${styles.pageLink} ${styles.arrow}`}
           >
-            {"<"}
+            <img src={arrowLeft} alt="arrow-left" />
           </button>
         </li>
       )}
@@ -47,7 +50,7 @@ function PageNavi(props) {
             onClick={() => paginate(pageNumber + 1)}
             className={`${styles.pageLink} ${styles.arrow}`}
           >
-            {">"}
+            <img src={arrowRight} alt="arrow-left" />
           </button>
         </li>
       )}

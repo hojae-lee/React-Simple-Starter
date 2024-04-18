@@ -20,6 +20,8 @@ $NAVIGATION-HEIGHT: 50px;
     width: 100%;
     height: calc(100% - $HEADER-HEIGHT - $FOOTER-HEIGHT - $NAVIGATION-HEIGHT);
 
+    gap: 10px;
+
     &__introBox {
       display: flex;
       align-items: center;
@@ -32,6 +34,7 @@ $NAVIGATION-HEIGHT: 50px;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 8px;
       }
     }
 
@@ -41,10 +44,11 @@ $NAVIGATION-HEIGHT: 50px;
       justify-content: center;
 
       width: 100%;
-      height: 60%;
 
       flex-wrap: wrap;
       gap: 8px;
+
+      position: relative;
     }
   }
 }
