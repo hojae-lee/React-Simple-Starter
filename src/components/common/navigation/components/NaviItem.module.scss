@@ -1,0 +1,13 @@
+.navi {
+  &__item {
+    &__box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 120px;
+      height: 60px;
+      border: 1px solid white;
+      border-radius: 20%;
+    }
+  }
+}

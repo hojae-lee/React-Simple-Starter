@@ -20,4 +20,7 @@ button {
   border: 1px solid $color-white-300;
   border-radius: 1rem;
   padding: 1rem;
+  min-width: 120px;
+  height: 60px;
+  box-sizing: content-box;
 }

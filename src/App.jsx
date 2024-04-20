@@ -10,11 +10,21 @@ import AboutRecoilPage from "./pages/about/RecoilPage";
 
 // Common
 import Header from "@components/common/header/Header";
+import Navigation from "@components/common/navigation/Navigation";
+import NaviItem from "@components/common/navigation/components/NaviItem";
+
+// Utils
+import pathData from "@assets/utils/pathData";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+      <Navigation>
+        {pathData.map((item, index) => (
+          <NaviItem to={item.path} name={item.name} key={index} />
+        ))}
+      </Navigation>
       <Routes>
         {/* 가장 기본이 되는 페이지는 index 를 넣어주기 */}
         <Route index path="/" element={<MainPage />} />
