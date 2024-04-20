@@ -36,7 +36,7 @@ function Detail() {
 
   return (
     <div>
-      Detail: {id}
+      <h1>Detail: {id}</h1>
       <h2>{title}</h2>
       <p>{body}</p>
       <DetailItem />
