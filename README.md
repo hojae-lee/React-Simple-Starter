@@ -55,6 +55,30 @@ export default defineConfig({
 });
 ```
 
+먼저 코드 라인을 하나씩 살펴보겠습니다.
+
+1. `new URL("./src", import.meta.url)`:
+   - 이 코드는 현재 모듈을 기준으로 상대 경로 "./src"를 가리키는 URL 객체를 만듭니다. 
+   - `import.meta.url`은 현재 모듈의 URL을 나타냅니다.
+
+2. `fileURLToPath(new URL("./src", import.meta.url))`:
+   - `new URL("./src", import.meta.url)`를 통해 생성된 URL 객체를 `fileURLToPath` 함수에 전달합니다.
+   - `fileURLToPath` 함수는 파일 URL을 파일 경로 문자열로 변환합니다.
+
+여기서 한 번 예를 들어보겠습니다.
+
+가정: 현재 모듈의 URL이 "file:///Users/username/project/index.js" 라고 가정합니다.
+
+1. `new URL("./src", import.meta.url)`:
+   - 현재 모듈을 기준으로 "./src"에 대한 URL을 만듭니다.
+   - 결과: "file:///Users/username/project/src"
+
+2. `fileURLToPath(new URL("./src", import.meta.url))`:
+   - 위에서 얻은 URL 객체를 `fileURLToPath` 함수에 전달하여 파일 경로 문자열로 변환합니다.
+   - 결과: "/Users/username/project/src"
+
+따라서, 전체 코드가 실행되면 상대 경로 "./src"가 포함된 현재 모듈의 파일 경로를 나타내는 문자열이 반환됩니다.
+
 ### React 에서 컴포넌트 간단하게 만들기
 
 “rfce” 를 치면 간단하게 리액트 컴포넌트를 스닛펫으로 만들 수 있음.
