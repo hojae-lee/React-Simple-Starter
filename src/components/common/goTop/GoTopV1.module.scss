@@ -1,0 +1,21 @@
+.scroll__to__top__button {
+  position: fixed;
+  bottom: 20px; /* 원하는 위치로 조정하세요 */
+  right: 20px; /* 원하는 위치로 조정하세요 */
+  background-color: $color-white-000;
+  color: $color-black-900;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    background-color: $color-gray-500;
+  }
+}

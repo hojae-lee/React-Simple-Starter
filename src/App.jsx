@@ -12,6 +12,7 @@ import AboutRecoilPage from "./pages/about/RecoilPage";
 import Header from "@components/common/header/Header";
 import Navigation from "@components/common/navigation/Navigation";
 import NaviItem from "@components/common/navigation/components/NaviItem";
+import GoTopV1 from "@components/common/goTop/GoTopV1";
 
 // Utils
 import pathData from "@assets/utils/pathData";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+      <GoTopV1 />
     </BrowserRouter>
   );
 }
