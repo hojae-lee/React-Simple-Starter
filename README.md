@@ -58,7 +58,8 @@ export default defineConfig({
 먼저 코드 라인을 하나씩 살펴보겠습니다.
 
 1. `new URL("./src", import.meta.url)`:
-   - 이 코드는 현재 모듈을 기준으로 상대 경로 "./src"를 가리키는 URL 객체를 만듭니다. 
+
+   - 이 코드는 현재 모듈을 기준으로 상대 경로 "./src"를 가리키는 URL 객체를 만듭니다.
    - `import.meta.url`은 현재 모듈의 URL을 나타냅니다.
 
 2. `fileURLToPath(new URL("./src", import.meta.url))`:
@@ -70,6 +71,7 @@ export default defineConfig({
 가정: 현재 모듈의 URL이 "file:///Users/username/project/index.js" 라고 가정합니다.
 
 1. `new URL("./src", import.meta.url)`:
+
    - 현재 모듈을 기준으로 "./src"에 대한 URL을 만듭니다.
    - 결과: "file:///Users/username/project/src"
 
@@ -78,6 +80,45 @@ export default defineConfig({
    - 결과: "/Users/username/project/src"
 
 따라서, 전체 코드가 실행되면 상대 경로 "./src"가 포함된 현재 모듈의 파일 경로를 나타내는 문자열이 반환됩니다.
+
+좀 더 효율적으로 할라면, alias 를 만들어주는 함수를 별도로 만들어서 관리해주면 됨.
+
+아래 처럼 getAliasPath 라는 콜백함수를 하나 만들어서 관리해주도록 하자.
+
+```js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import { fileURLToPath, URL } from "url";
+
+// alias path 를 만들어주는 콜백함수
+const getAliasPath = (path) => {
+  return fileURLToPath(new URL(path, import.meta.url));
+};
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": getAliasPath("./src"),
+      "@assets": getAliasPath("./src/assets"),
+      "@components": getAliasPath("./src/components"),
+      "@pages": getAliasPath("./src/pages"),
+      "@recoil": getAliasPath("./src/recoil"),
+      "@store": getAliasPath("./src/store"),
+      "@apis": getAliasPath("./src/apis"),
+    },
+  },
+  // scss 전역 사용
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "./src/assets/styles/scss/main.scss";`,
+      },
+    },
+  },
+});
+```
 
 ### React 에서 컴포넌트 간단하게 만들기
 
