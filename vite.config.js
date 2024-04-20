@@ -2,20 +2,23 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "url";
 
+// alias path 를 만들어주는 콜백함수
+const getAliasPath = (path) => {
+  return fileURLToPath(new URL(path, import.meta.url));
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
-      "@assets": fileURLToPath(new URL("./src/assets", import.meta.url)),
-      "@components": fileURLToPath(
-        new URL("./src/components", import.meta.url)
-      ),
-      "@pages": fileURLToPath(new URL("./src/pages", import.meta.url)),
-      "@recoil": fileURLToPath(new URL("./src/recoil", import.meta.url)),
-      "@store": fileURLToPath(new URL("./src/store", import.meta.url)),
-      "@apis": fileURLToPath(new URL("./src/apis", import.meta.url)),
+      "@": getAliasPath("./src"),
+      "@assets": getAliasPath("./src/assets"),
+      "@components": getAliasPath("./src/components"),
+      "@pages": getAliasPath("./src/pages"),
+      "@recoil": getAliasPath("./src/recoil"),
+      "@store": getAliasPath("./src/store"),
+      "@apis": getAliasPath("./src/apis"),
     },
   },
   // scss 전역 사용
