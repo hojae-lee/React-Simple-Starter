@@ -7,6 +7,7 @@ import { detailInfoState } from "@recoil/detailAtom";
 import axios from "axios";
 
 import DetailItem from "./components/DetailItem";
+import UseForm from "@components/common/form/UseForm";
 
 function Detail() {
   const { id } = useParams();
@@ -40,6 +41,7 @@ function Detail() {
       <h2>{title}</h2>
       <p>{body}</p>
       <DetailItem />
+      <UseForm />
     </div>
   );
 }
