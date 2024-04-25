@@ -18,6 +18,7 @@ export default defineConfig({
       "@pages": getAliasPath("./src/pages"),
       "@recoil": getAliasPath("./src/recoil"),
       "@store": getAliasPath("./src/store"),
+      "@zustand": getAliasPath("./src/zustand"),
       "@apis": getAliasPath("./src/apis"),
     },
   },

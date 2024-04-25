@@ -3,6 +3,7 @@ import MainPage from "./pages/main/index";
 import AboutPage from "./pages/about/index";
 import DetailPage from "./pages/detail/index";
 import NotFoundPage from "./pages/NotFound";
+import MemoPage from "./pages/memo/index";
 
 // Child
 import AboutReduxPage from "./pages/about/ReduxPage";
@@ -36,6 +37,7 @@ function App() {
         </Route>
         {/* 동적 라우팅을 이용한 페이지 구성 */}
         <Route path="/detail/:id" element={<DetailPage />} />
+        <Route path="/memo" element={<MemoPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
       <GoTopV1 />
