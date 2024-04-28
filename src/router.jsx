@@ -34,6 +34,19 @@ const router = createBrowserRouter([
             <AboutPage />
           </Suspense>
         ),
+        loader: () => {
+          const data = [
+            {
+              id: 1,
+              content: "hello",
+            },
+            {
+              id: 2,
+              content: "world",
+            },
+          ];
+          return data;
+        },
         children: [
           {
             path: "redux",
