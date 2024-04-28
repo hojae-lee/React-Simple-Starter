@@ -1,47 +1,21 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainPage from "./pages/main/index";
-import AboutPage from "./pages/about/index";
-import DetailPage from "./pages/detail/index";
-import NotFoundPage from "./pages/NotFound";
-import MemoPage from "./pages/memo/index";
-
-// Child
-import AboutReduxPage from "./pages/about/ReduxPage";
-import AboutRecoilPage from "./pages/about/RecoilPage";
+import { Outlet } from "react-router-dom";
 
 // Common
 import Header from "@components/common/header/Header";
 import Navigation from "@components/common/navigation/Navigation";
-import NaviItem from "@components/common/navigation/components/NaviItem";
+import NaviList from "@components/common/navigation/components/NaviList";
 import GoTopV1 from "@components/common/goTop/GoTopV1";
-
-// Utils
-import pathData from "@assets/utils/pathData";
 
 function App() {
   return (
-    <BrowserRouter>
+    <>
       <Header />
       <Navigation>
-        {pathData.map((item, index) => (
-          <NaviItem to={item.path} name={item.name} key={index} />
-        ))}
+        <NaviList />
       </Navigation>
-      <Routes>
-        {/* 가장 기본이 되는 페이지는 index 를 넣어주기 */}
-        <Route index path="/" element={<MainPage />} />
-        {/* 중첩 라우팅  */}
-        <Route path="/about" element={<AboutPage />}>
-          <Route path="redux" element={<AboutReduxPage />} />
-          <Route path="recoil" element={<AboutRecoilPage />} />
-        </Route>
-        {/* 동적 라우팅을 이용한 페이지 구성 */}
-        <Route path="/detail/:id" element={<DetailPage />} />
-        <Route path="/memo" element={<MemoPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Outlet></Outlet>
       <GoTopV1 />
-    </BrowserRouter>
+    </>
   );
 }
 
