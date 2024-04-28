@@ -79,15 +79,8 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      {
-        path: "*",
-        element: (
-          <Suspense fallback={<Loading />}>
-            <NotFoundPage />
-          </Suspense>
-        ),
-      },
     ],
+    errorElement: <NotFoundPage />,
   },
 ]);
 
