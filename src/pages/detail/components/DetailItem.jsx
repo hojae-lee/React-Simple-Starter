@@ -1,9 +1,7 @@
-import { useRecoilValue } from "recoil";
+import PropTypes from "prop-types";
 
-import { detailInfoState } from "@recoil/detailAtom";
-
-function DetailItem() {
-  const detailInfo = useRecoilValue(detailInfoState);
+function DetailItem({ data }) {
+  const detailInfo = data;
 
   return (
     <div>
@@ -15,3 +13,7 @@ function DetailItem() {
 }
 
 export default DetailItem;
+
+DetailItem.propTypes = {
+  data: PropTypes.object.isRequired,
+};

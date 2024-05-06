@@ -1,46 +1,27 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useSetRecoilState } from "recoil";
-
-import { detailInfoState } from "@recoil/detailAtom";
-
-import axios from "axios";
 
 import DetailItem from "./components/DetailItem";
 import UseForm from "@components/common/form/UseForm";
 
+import { getDetailInfo } from "./useDetailHook";
+
 function Detail() {
   const { id } = useParams();
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
 
-  const setData = useSetRecoilState(detailInfoState);
+  const { data, isLoading, error } = getDetailInfo({ id });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          `https://jsonplaceholder.typicode.com/posts/${id}`
-        );
-        if (res.status === 200) {
-          console.log(res.data);
-          setTitle(res.data.title);
-          setBody(res.data.body);
-          setData(res.data);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, [id, setData]);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>erro...</div>;
+  }
 
   return (
     <div>
       <h1>Detail: {id}</h1>
-      <h2>{title}</h2>
-      <p>{body}</p>
-      <DetailItem />
+      {data && <DetailItem data={data} />}
       <UseForm />
     </div>
   );
