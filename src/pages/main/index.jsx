@@ -1,5 +1,6 @@
 import FooterHello from "@components/common/footer/FooterHello";
 import CardList from "./components/CardList";
+import CounterBtn from "./components/CounterBtn";
 
 import styles from "./styles/index.module.scss";
 
@@ -16,6 +17,7 @@ function index() {
             <span className={styles.wrapper__desc}>{desc}</span>
           </div>
         </div>
+        <CounterBtn />
         <div className={styles.container__contents__imageBox}>
           <CardList />
           <FooterHello />
