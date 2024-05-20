@@ -1,5 +1,7 @@
 # Simple React Project
 
+뭔가 개발하는 것보다는 심플한 리액트 프로젝트에 요고저고 해보는 곳
+
 ## 개발환경 셋팅 💻
 
 1. react 프로젝트 설치: `yarn create vite@latest`
